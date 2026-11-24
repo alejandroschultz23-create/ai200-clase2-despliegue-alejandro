@@ -90,8 +90,6 @@ az cognitiveservices account deployment create \
 Una vez creado, obtén la información que necesitas para completar `.env.sh`:
 
 ```bash
-az cognitiveservices account show -g "$RESOURCE_GROUP" -n "$FOUNDRY_ACCOUNT" \
-  --query '{id:id, endpoint:properties.endpoint, kind:kind}' -o jsonc
 
 az cognitiveservices account deployment list -g "$RESOURCE_GROUP" -n "$FOUNDRY_ACCOUNT" -o table
 ```
