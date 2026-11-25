@@ -39,7 +39,11 @@ def config():
 
 @app.get('/', response_class=HTMLResponse)
 def index(request: Request):
-    return templates.TemplateResponse('index.html', {'request': request, 'edition': os.getenv('APP_EDITION','v1')})
+    return templates.TemplateResponse(
+        request=request,
+        name='index.html',
+        context={'edition': os.getenv('APP_EDITION', 'v1')}
+    )
 
 @app.post('/api/chat')
 def chat(payload: ChatRequest):
